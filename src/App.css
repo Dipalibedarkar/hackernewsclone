@@ -1,3 +1,27 @@
+body {
+  background-color: #e6dcbb;
+  overflow-x: hidden;
+}
+.HomePageTitle {
+  text-align: center;
+}
+.author {
+  margin-left: 5%;
+}
+.Button {
+  position: relative;
+  margin-left: 20px;
+}
+.iconButton {
+  position: relative;
+  margin-left: 30px !important;
+}
+.ButtonHover:hover {
+  border-bottom: 2px solid #ff1744;
+}
+.ShareButton {
+  margin-left: 100px;
+}
 .App {
   text-align: center;
 }
