@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
         marginLeft: theme.spacing(1),
         width: 'auto',
       },
-    },
+    },  
     searchIcon: {
       padding: theme.spacing(0, 2),
       height: '100%',
@@ -94,6 +94,7 @@ function Searchbar() {
     const searchingFunc = (event) => {
         if (event.key === "Enter" && event.target.value !== "") {
             changeInput()
+            event.currentTarget.value=""
         }
     }
 
