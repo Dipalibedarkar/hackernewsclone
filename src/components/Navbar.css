@@ -1,0 +1,15 @@
+/* .navbar {
+    background-color: #bf0413;
+    padding: 20px;
+} */
+
+.navbar img {
+    max-width: 200px;
+    cursor: pointer
+}
+.loading {
+    font-size: 3em;
+    color: black;
+    margin-top: 30px;
+    text-align: center;
+}
