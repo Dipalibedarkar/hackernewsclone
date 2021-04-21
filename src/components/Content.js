@@ -59,8 +59,10 @@ return(event.toLocaleDateString('en-US', {
         <>
         {loading ? (
     <p className="loading">Loading... please stand by...</p>
-) :
-(<Grid container spacing={2} className={classes.gridContainer}>
+) : ( data.length==0 ? (
+        <p className="loading">Sorry, we couldn't find what you were looking for :(</p>
+    ):(
+    <Grid container spacing={2} className={classes.gridContainer}>
             {data.map((e) => (
                 <><Grid item xs={12} sm={6} md={4}>
                     <Card className={classes.root} style={{ backgroundColor: "#D9D6D2" }}>
@@ -101,7 +103,7 @@ return(event.toLocaleDateString('en-US', {
                 </>
             ))
             }
-        </Grid>)}
+        </Grid>))})
         </>
     );
 }
