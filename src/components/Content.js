@@ -82,7 +82,7 @@ function Content({ loading, data }) {
                             </Typography>
                         </CardContent>
                         <CardActions disableSpacing>
-                            <a href="#" className="ButtonHover"><Button size="small">{e.num_comments}</Button></a>
+                            <a href="#" className="ButtonHover"><Button size="small">Comments: {e.num_comments}</Button></a>
                             <a href={e.url} target="_blank" className="ButtonHover Button"><Button size="small">Go to the News</Button></a>
                             <IconButton aria-label="share" className="iconButton">
                                 <ShareIcon />
@@ -122,3 +122,10 @@ export default Content;
 }
 
 </div> */}
+
+/* {data.map((e) => (
+    <>
+        <p>{e.title}</p>
+    </>
+))
+} */
