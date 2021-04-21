@@ -84,7 +84,7 @@ function Content({ loading, data }) {
                         <CardActions disableSpacing>
                             <a href="#" className="ButtonHover"><Button size="small">Comments: {e.num_comments}</Button></a>
                             <a href={e.url} target="_blank" className="ButtonHover Button"><Button size="small">Go to the News</Button></a>
-                            <IconButton aria-label="share" className="iconButton">
+                            <IconButton aria-label="share" onClick={()=> alert(e.url)} className="iconButton">
                                 <ShareIcon />
                             </IconButton>
                         </CardActions>
