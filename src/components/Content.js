@@ -17,7 +17,7 @@ import TextField from '@material-ui/core/TextField';
 const useStyles = makeStyles((theme) => ({
     root: {
         maxWidth: 400,
-        minHeight: 200,
+        minHeight: 250,
     },
     media: {
         height: 0,
@@ -38,8 +38,10 @@ const useStyles = makeStyles((theme) => ({
     },
     gridContainer: {
         paddingLeft: '20px',
-        paddingRight: '20px'
-      }
+        paddingRight: '20px',
+        
+      },
+      
 }));
 
 function Content({ loading, data }) {
@@ -74,8 +76,8 @@ function Content({ loading, data }) {
                         <CardContent>
                             <Typography variant="body2" color="textSecondary" component="p" className="cardTitle">
                                 {e.title ?
-                                    <a target="_blank" href={e.url}>{e.title}</a> :
-                                    `${e.story_title ? <a target="_blank" href={e.story_url}>{e.story_title}</a> : "No Title :/"}`
+                                    <p>{e.title}</p> :
+                                    `${e.story_title ? <p>{e.story_title}</p> : "No Title :/"}`
                                 }
                             </Typography>
                         </CardContent>
