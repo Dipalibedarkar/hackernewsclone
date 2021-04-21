@@ -69,11 +69,11 @@ return(event.toLocaleDateString('en-US', {
                                 <Avatar aria-label="recipe" className={classes.avatar}>
                                     {e.points}</Avatar>
                             }
-                            action={
+                            /* action={
                                 <IconButton aria-label="settings">
                                     <MoreVertIcon />
                                 </IconButton>
-                            }
+                            } */
                             subheader={
                                 <div style={{ display: 'flex', justifyContent: 'space-around' }}>
                                     <p>{calcDate(e.created_at)}</p>
