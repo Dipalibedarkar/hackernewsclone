@@ -83,7 +83,7 @@ function Searchbar() {
         await Axios.get(`https://hn.algolia.com/api/v1/search${search}`)
             .then(response => setData(response.data.hits))
             .catch(error => console.log(error))
-        setTimeout(console.log(data), 100)  
+        setTimeout(console.log(data), 200)  
         setLoading(false)
     }
 

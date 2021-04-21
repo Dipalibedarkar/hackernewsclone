@@ -47,6 +47,14 @@ const useStyles = makeStyles((theme) => ({
 function Content({ loading, data }) {
     const classes = useStyles();
 
+    const calcDate = (time) => {
+        const event = new Date(time)
+return(event.toLocaleDateString('en-US', {
+                hour: 'numeric',
+                minute: 'numeric'
+              }))
+    }
+
     return (
         <>
         {loading ? (
@@ -68,7 +76,7 @@ function Content({ loading, data }) {
                             }
                             subheader={
                                 <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-                                    <p>{e.created_at}</p>
+                                    <p>{calcDate(e.created_at)}</p>
                                     <p>{e.author}</p>
                                 </div>
                             }
