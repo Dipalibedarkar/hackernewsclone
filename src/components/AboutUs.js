@@ -18,13 +18,13 @@ import './About.css';
 
 const useStyles = makeStyles({
   root: {
-
+    minHeight: 500,
     minWidth: 300,
     margin: "5rem", 
 
   },
   media: {
-    height: 240,
+    height: 350,
   },
 });
 
