@@ -25,6 +25,20 @@ body {
 .ShareButton {
   margin-left: 100px;
 }
+.aboutTitle {
+  position: relative;
+  text-align: center;
+  margin-top: 50px !important;
+}
+.visitGitHub {
+  text-decoration: none;
+  color: #3f51b5;
+  font-weight: bold;
+  cursor: pointer;
+}
+.visitGitHub:hover {
+  border-bottom: 2px solid #ff1744;
+}
 .App {
   text-align: center;
 }

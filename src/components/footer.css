@@ -1,0 +1,20 @@
+.footer {
+    position: relative;
+    height: 150px;
+    width: 100%;
+    top: 300px;
+    left: 0;
+    bottom: 0;
+    padding: 0;
+    margin: 0;
+    background-color: #3f51b5;
+    color: white;
+    text-align: center;
+    margin-top: 80px;
+}
+
+button {
+height: 60px;
+width: 120px;
+}
+
