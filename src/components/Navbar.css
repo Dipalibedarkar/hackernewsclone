@@ -1,0 +1,28 @@
+/* .navbar {
+    background-color: #bf0413;
+    padding: 20px;
+} */
+
+.logo {
+    max-width: 200px;
+    cursor: pointer
+}
+.loading {
+    font-size: 3em;
+    color: black;
+    margin-top: 30px;
+    text-align: center;
+}
+
+h2 {
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+}
+
+button {
+    opacity: 0.6;
+    height: 36px;
+    border: none;
+    cursor: pointer;
+}
