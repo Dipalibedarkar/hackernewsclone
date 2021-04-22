@@ -125,7 +125,6 @@ function Searchbar() {
   }
 
   const showComments = (objID) => {
-    setPage(0)
     setSearch(`?tags=comment,story_${objID}`)
   }
 
@@ -140,14 +139,14 @@ function Searchbar() {
       <div className={classes.root}>
         <AppBar position="static">
           <Toolbar>
-            <img src={logo} className="logo" onClick={() => {setSearch('?tags=front_page');fetchData()}} />
-            <h2 onClick={() => {setSearch('?tags=front_page');fetchData()}}>
+            <img src={logo} className="logo" onClick={() => {setSearch('?tags=front_page')}} />
+            <h2 onClick={() => {setSearch('?tags=front_page')}}>
               Home
           </h2>
-            <h2 onClick={() => {setSearch('_by_date?tags=(story,poll)');fetchData()}}>
+            <h2 onClick={() => {setSearch('_by_date?tags=(story,poll)')}}>
               Newest
           </h2>
-            <h2 onClick={() => {setSearch('?query=&tags=story');fetchData()}}>
+            <h2 onClick={() => {setSearch('?query=&tags=story')}}>
               Best of All
           </h2>
             <div className={classes.search}>
