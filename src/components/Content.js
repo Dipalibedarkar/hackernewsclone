@@ -71,7 +71,7 @@ return(event.toLocaleDateString('en-US', {
     <p className="loading">Loading... please stand by...</p>
 ) : ( data.length==0 ? (
         <p className="loading" onClick={() => handlePageChange(1, 1)}>Sorry, we couldn't find what you were looking for :-( <br/>
-        Click here to return to Page 1 :-)</p>
+        Click here to return to Page 1</p>
     ):(
     <Grid container spacing={2} className={classes.gridContainer}>
             {data.map((e) => (

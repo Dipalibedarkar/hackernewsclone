@@ -133,21 +133,20 @@ function Searchbar() {
   }
 
 
-
   return (
     <>
       <div className={classes.root}>
-        <AppBar position="static">
+        <AppBar position="static" id="theNavBar">
           <Toolbar>
             <img src={logo} className="logo" onClick={() => {setSearch('?tags=front_page')}} />
             <h2 onClick={() => {setSearch('?tags=front_page')}}>
               Home
           </h2>
             <h2 onClick={() => {setSearch('_by_date?tags=(story,poll)')}}>
-              Newest
+              New
           </h2>
             <h2 onClick={() => {setSearch('?query=&tags=story')}}>
-              Best of All
+              Best of All Time
           </h2>
             <div className={classes.search}>
               <InputBase
