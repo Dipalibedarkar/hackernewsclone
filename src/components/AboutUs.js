@@ -15,6 +15,7 @@ import Hackericon from '../assets/img/Y_Combinator.png';
 import './About.css';
 
 
+
 const useStyles = makeStyles({
   root: {
 
@@ -32,7 +33,7 @@ export default function MediaCard() {
 
   return (
       <> 
-      <Typography gutterBottom variant="h2" component="h2" className="aboutTitle">
+      <Typography gutterBottom variant="h2" className="aboutTitle">
            About Us
       </Typography>
      <Grid container spacing={2} className={classes.gridContainer} >
@@ -44,7 +45,7 @@ export default function MediaCard() {
           title="Matthias Schmettow"
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2" text-align="center">
+          <Typography gutterBottom variant="h5" text-align="center">
            Matthias
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p" text-align="center">
@@ -62,7 +63,7 @@ export default function MediaCard() {
           title="Dipali Bedarkar"
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2" text-align="center">
+          <Typography gutterBottom variant="h5" text-align="center">
             Dipali
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p" text-align="center">
@@ -79,7 +80,7 @@ export default function MediaCard() {
           title="Ömer Ügür"
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2" text-align="center">
+          <Typography gutterBottom variant="h5" text-align="center">
             Ömer
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p" text-align="center">
@@ -98,7 +99,7 @@ export default function MediaCard() {
           title="React JS"
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
+          <Typography gutterBottom variant="h5">
           React 
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
@@ -116,7 +117,7 @@ export default function MediaCard() {
           title="Material- UI"
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
+          <Typography gutterBottom variant="h5">
           Material - UI
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
@@ -134,7 +135,7 @@ export default function MediaCard() {
           title="Hacker News"
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
+          <Typography gutterBottom variant="h5">
           Hacker News
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">

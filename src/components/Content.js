@@ -1,4 +1,4 @@
-import { Grid } from '@material-ui/core';
+import { Grid} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -12,7 +12,9 @@ import { red } from '@material-ui/core/colors';
 import ShareIcon from '@material-ui/icons/Share';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import TextField from '@material-ui/core/TextField';
+import { Pagination } from '@material-ui/lab';
 import '../App.css';
+import react, {useState} from 'react'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -44,7 +46,8 @@ const useStyles = makeStyles((theme) => ({
       
 }));
 
-function Content({ loading, data }) {
+function Content({ loading, data, showComments }) {
+    const [page, setPage] = useState(1);
     const classes = useStyles();
 
     const calcDate = (time) => {
@@ -53,6 +56,11 @@ return(event.toLocaleDateString('en-US', {
                 hour: 'numeric',
                 minute: 'numeric'
               }))
+    }
+    function decodeHtml(html) {
+        var txt = document.createElement("textarea");
+        txt.innerHTML = html;
+        return txt.value;
     }
 
     return (
@@ -71,11 +79,6 @@ return(event.toLocaleDateString('en-US', {
                                 <Avatar aria-label="recipe" className={classes.avatar}>
                                     {e.points}</Avatar>
                             }
-                            /* action={
-                                <IconButton aria-label="settings">
-                                    <MoreVertIcon />
-                                </IconButton>
-                            } */
                             subheader={
                                 <div style={{ display: 'flex', justifyContent: 'space-around' }}>
                                     <p>{calcDate(e.created_at)}</p>
@@ -87,23 +90,25 @@ return(event.toLocaleDateString('en-US', {
                             <Typography variant="body2" color="textSecondary" component="p" className="cardTitle">
                                 {e.title ?
                                     <p>{e.title}</p> :
-                                    `${e.story_title ? <p>{e.story_title}</p> : "No Title :/"}`
+                                    <p>{decodeHtml(e.comment_text)}</p>
                                 }
                             </Typography>
                         </CardContent>
-                        <CardActions disableSpacing>
-                            <a href="#" className="ButtonHover"><Button size="small">Comments: {e.num_comments}</Button></a>
+                        {!e.title ? '' : <CardActions disableSpacing>
+                            <a href="#" className="ButtonHover"><Button size="small" onClick={() => showComments(e.objectID)} >Comments: {e.num_comments}</Button></a>
                             <a href={e.url} target="_blank" className="ButtonHover Button"><Button size="small">Go to the News</Button></a>
                             <IconButton aria-label="share" onClick={()=> alert(e.url)} className="iconButton">
                                 <ShareIcon />
                             </IconButton>
-                        </CardActions>
+                        </CardActions>}
                     </Card>
                 </Grid>
                 </>
             ))
             }
+            <Pagination count={10} color="primary" />
         </Grid>))}
+        
         </>
     );
 }

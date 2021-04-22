@@ -121,6 +121,10 @@ function Searchbar() {
     setAbout(!about)
   }
 
+  const showComments = (objID) => {
+    setSearch(`?tags=comment,story_${objID}`)
+  }
+
 
 
   return (
@@ -174,7 +178,7 @@ function Searchbar() {
       </div>
       <br />
       {about ? <MediaCard /> :
-        <Content data={data} loading={loading} />
+        <Content data={data} loading={loading} showComments={showComments} />
         }
       <Footer changeAbout={changeAbout} />
     </>
