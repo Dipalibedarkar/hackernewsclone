@@ -77,7 +77,11 @@ function Searchbar() {
   const [fixResults, setFixResults] = useState(15)
 
   useEffect(() => {
-    fetchData()
+    fetchData();
+    const interval = setInterval(() => {
+      fetchData();
+    }, 300000);
+    return () => clearInterval(interval);
   }, [search, fixResults])
 
   const fetchData = async () => {
