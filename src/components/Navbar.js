@@ -74,14 +74,15 @@ function Searchbar() {
   const [search, setSearch] = useState('?tags=front_page')
   const [loading, setLoading] = useState(false)
   const [results, setResults] = useState(15)
+  const [fixResults, setFixResults] = useState(15)
 
   useEffect(() => {
     fetchData()
-  }, [search])
+  }, [search, fixResults])
 
   const fetchData = async () => {
     setLoading(true)
-    await Axios.get(`https://hn.algolia.com/api/v1/search${search}&hitsPerPage=${results}`)
+    await Axios.get(`https://hn.algolia.com/api/v1/search${search}&hitsPerPage=${fixResults}`)
       .then(response => setData(response.data.hits))
       .catch(error => alert(error))
     setTimeout(console.log(data), 200)
@@ -96,6 +97,12 @@ function Searchbar() {
     if (event.key === "Enter" && event.target.value !== "") {
       changeInput()
       event.currentTarget.value = ""
+    }
+  }
+
+  const setResultNum = () => {
+    if (!isNaN(results) && results>0 && results <= 100) {
+      setFixResults(results)
     }
   }
 
@@ -116,9 +123,20 @@ function Searchbar() {
             <h2 onClick={() => setSearch('?query=&tags=story')}>
               Best of All
           </h2>
-            <label for="results">Results per page:</label>
-            <input type="number" name="results" placeholder=" Default: 15" onChange={((e) => setResults(e.target.value))}
-              min="6" max="50"/>
+            <div className={classes.search}>
+              <InputBase
+                placeholder="Res per page"
+                onChange={((e) => setResults(e.target.value))}
+                classes={{
+                  root: classes.inputRoot,
+                  input: classes.inputInput,
+                }}
+                inputProps={{ 'aria-label': 'search' }}
+              />
+              <Button variant="outline-info" onClick={setResultNum}>Set amount</Button>
+            </div>
+            {/* <input type="number" name="results" placeholder=" Default: 15" onChange={((e) => setResults(e.target.value))}
+              min="6" max="50"/> */}
             <div className={classes.search}>
               <div className={classes.searchIcon}>
                 <SearchIcon />
