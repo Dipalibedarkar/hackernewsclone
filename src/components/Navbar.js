@@ -1,15 +1,12 @@
-import react, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import './Navbar.css'
 import Axios from 'axios'
 import logo from './Y_Combinator_logo.png'
 import Content from './Content'
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import { fade, makeStyles } from '@material-ui/core/styles';
-import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import { Button, Backdrop, CircularProgress } from '@material-ui/core';
 import Footer from './Footer'
@@ -165,8 +162,6 @@ function Searchbar() {
               />
               <Button class="amountButton"variant="outline-info" onClick={setResultNum}>Set Amount</Button>
             </div>
-            {/* <input type="number" name="results" placeholder=" Default: 15" onChange={((e) => setResults(e.target.value))}
-              min="6" max="50"/> */}
             <div className={classes.search}>
               <div className={classes.searchIcon}>
                 <SearchIcon />

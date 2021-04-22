@@ -10,11 +10,9 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 import ShareIcon from '@material-ui/icons/Share';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
-import TextField from '@material-ui/core/TextField';
 import { Pagination } from '@material-ui/lab';
 import '../App.css';
-import react, {useState} from 'react'
+import {useState} from 'react'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -119,33 +117,3 @@ return(event.toLocaleDateString('en-US', {
 }
 
 export default Content;
-
-
-{/* <div className="App">
-{loading ? (
-    <p className="loading">Loading... please stand by...</p>
-) : (
-    <>
-        {data.map((e) => (
-            <>
-                <p><b>{e.title ?
-                    <a target="_blank" href={e.url}>{e.title}</a> :
-                    `${e.story_title ? <a target="_blank" href={e.story_url}>{e.story_title}</a> : "No Title :/"}`
-                }
-                </b></p>
-                <p>{e.points ? `Points: ${e.points}` : "No Points :("}</p>
-                <p>posted by: {e.author} | created: {e.created_at}</p>
-            </>
-        ))
-        }
-    </>)
-}
-
-</div> */}
-
-/* {data.map((e) => (
-    <>
-        <p>{e.title}</p>
-    </>
-))
-} */
