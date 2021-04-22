@@ -91,6 +91,7 @@ function Searchbar() {
   }, [search, fixResults])
 
   const fetchData = async () => {
+    setAbout(false)
     setLoading(true)
     await Axios.get(`https://hn.algolia.com/api/v1/search${search}&hitsPerPage=${fixResults}`)
       .then(response => setData(response.data.hits))
