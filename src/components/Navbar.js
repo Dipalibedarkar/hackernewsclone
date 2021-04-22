@@ -148,7 +148,7 @@ function Searchbar() {
                 }}
                 inputProps={{ 'aria-label': 'search' }}
               />
-              <Button variant="outline-info" onClick={setResultNum}>Set amount</Button>
+              <Button class="amountButton"variant="outline-info" onClick={setResultNum}>Set Amount</Button>
             </div>
             {/* <input type="number" name="results" placeholder=" Default: 15" onChange={((e) => setResults(e.target.value))}
               min="6" max="50"/> */}
@@ -166,7 +166,7 @@ function Searchbar() {
                 }}
                 inputProps={{ 'aria-label': 'search' }}
               />
-              <Button variant="outline-info" onClick={changeInput}>Search</Button>
+              <Button class="searchButton"variant="outline-info" onClick={changeInput}>Search</Button>
             </div>
 
           </Toolbar>

@@ -10,11 +10,16 @@
     background-color: #3f51b5;
     color: white;
     text-align: center;
-    margin-top: 80px;
 }
-
 button {
-height: 60px;
-width: 120px;
+    height: 60px;
+    width: 120px;
+    }
+.copybutton {
+    height: 60px;
+    width: 120px;
+        }   
+.fStyle {
+    margin-top: 40px;
 }
 

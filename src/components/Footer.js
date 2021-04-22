@@ -25,7 +25,7 @@ export default function Footer({changeAbout}) {
   const [value, setValue] = React.useState(0);
   
   return (
-    <>
+    <div class="fStyle">
     <BottomNavigation 
       value={value}
       onChange={(event, newValue) => {
@@ -34,13 +34,17 @@ export default function Footer({changeAbout}) {
       showLabels
       className={classes.root}
     >
-      <BottomNavigationAction style={{ color: 'black' }} label="Copyright" icon={<CopyrightIcon /> } > </BottomNavigationAction>  
-        <Button variant="contained"  href="#contained-buttons" onClick={changeAbout}>
-  About Us
-</Button>
-      
- <BottomNavigationAction style={{ color: 'black' }} label="github" icon={<GitHubIcon />} />
+      <BottomNavigationAction  style={{ color: 'black', top: '3px' }} label="Copyright by MDO" icon={<CopyrightIcon /> } > 
+      </BottomNavigationAction> 
+
+      <Button variant="contained"  href="#contained-buttons" onClick={changeAbout}>
+        About Us
+      </Button>
+              
+ <BottomNavigationAction  style={{ color: 'black', top: '5px' }} label="github" 
+ href="https://github.com/oemerueguer/hackernewsclone"  target="_blank"
+ icon={<GitHubIcon />} />
     </BottomNavigation>
-    </>
+    </div>
   );
 }

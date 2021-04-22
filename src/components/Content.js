@@ -17,7 +17,7 @@ import '../App.css';
 const useStyles = makeStyles((theme) => ({
     root: {
         maxWidth: 400,
-        height: 250,
+        minHeight: 300,
     },
     media: {
         height: 0,
