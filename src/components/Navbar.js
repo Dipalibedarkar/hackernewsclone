@@ -81,6 +81,7 @@ function Searchbar() {
   const [results, setResults] = useState(15)
   const [fixResults, setFixResults] = useState(15)
   const [about, setAbout] = useState(false)
+  const [page, setPage] = useState(0);
 
   useEffect(() => {
     fetchData();
@@ -88,12 +89,12 @@ function Searchbar() {
       fetchData();
     }, 300000);
     return () => clearInterval(interval);
-  }, [search, fixResults])
+  }, [search, fixResults, page])
 
   const fetchData = async () => {
     setAbout(false)
     setLoading(true)
-    await Axios.get(`https://hn.algolia.com/api/v1/search${search}&hitsPerPage=${fixResults}`)
+    await Axios.get(`https://hn.algolia.com/api/v1/search${search}&hitsPerPage=${fixResults}&page=${page}`)
       .then(response => setData(response.data.hits))
       .catch(error => alert(error))
     setTimeout(console.log(data), 200)
@@ -101,6 +102,7 @@ function Searchbar() {
   }
 
   const changeInput = () => {
+    setPage(0)
     setSearch(`?query=${input}&tags=story`)
   }
 
@@ -122,7 +124,12 @@ function Searchbar() {
   }
 
   const showComments = (objID) => {
+    setPage(0)
     setSearch(`?tags=comment,story_${objID}`)
+  }
+
+  const changePage = (page) => {
+    setPage(page-1)
   }
 
 
@@ -132,14 +139,14 @@ function Searchbar() {
       <div className={classes.root}>
         <AppBar position="static">
           <Toolbar>
-            <img src={logo} className="logo" onClick={() => setSearch('?tags=front_page')} />
-            <h2 onClick={() => setSearch('?tags=front_page')}>
+            <img src={logo} className="logo" onClick={() => {setSearch('?tags=front_page');fetchData()}} />
+            <h2 onClick={() => {setSearch('?tags=front_page');fetchData()}}>
               Home
           </h2>
-            <h2 onClick={() => setSearch('_by_date?tags=(story,poll)')}>
+            <h2 onClick={() => {setSearch('_by_date?tags=(story,poll)');fetchData()}}>
               Newest
           </h2>
-            <h2 onClick={() => setSearch('?query=&tags=story')}>
+            <h2 onClick={() => {setSearch('?query=&tags=story');fetchData()}}>
               Best of All
           </h2>
             <div className={classes.search}>
@@ -178,7 +185,7 @@ function Searchbar() {
       </div>
       <br />
       {about ? <MediaCard /> :
-        <Content data={data} loading={loading} showComments={showComments} />
+        <Content data={data} loading={loading} showComments={showComments} changePage={changePage} />
         }
       <Footer changeAbout={changeAbout} />
     </>

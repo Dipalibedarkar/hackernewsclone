@@ -46,8 +46,8 @@ const useStyles = makeStyles((theme) => ({
       
 }));
 
-function Content({ loading, data, showComments }) {
-    const [page, setPage] = useState(1);
+function Content({ loading, data, showComments, changePage }) {
+    const [selectedPage, setSelectedPage] = useState(1)
     const classes = useStyles();
 
     const calcDate = (time) => {
@@ -56,6 +56,10 @@ return(event.toLocaleDateString('en-US', {
                 hour: 'numeric',
                 minute: 'numeric'
               }))
+    }
+    const handlePageChange = (event, value) => {
+        setSelectedPage(value)
+        changePage(value)
     }
     function decodeHtml(html) {
         var txt = document.createElement("textarea");
@@ -68,7 +72,8 @@ return(event.toLocaleDateString('en-US', {
         {loading ? (
     <p className="loading">Loading... please stand by...</p>
 ) : ( data.length==0 ? (
-        <p className="loading">Sorry, we couldn't find what you were looking for :(</p>
+        <p className="loading" onClick={() => handlePageChange(1, 1)}>Sorry, we couldn't find what you were looking for :-( <br/>
+        Click here to return to Page 1 :-)</p>
     ):(
     <Grid container spacing={2} className={classes.gridContainer}>
             {data.map((e) => (
@@ -106,7 +111,7 @@ return(event.toLocaleDateString('en-US', {
                 </>
             ))
             }
-            <Pagination count={10} color="primary" />
+            <Pagination count={10} page={selectedPage} onChange={handlePageChange} color="primary" />
         </Grid>))}
         
         </>
