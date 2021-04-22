@@ -11,7 +11,7 @@ import InputBase from '@material-ui/core/InputBase';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
-import { Button } from '@material-ui/core';
+import { Button, Backdrop, CircularProgress } from '@material-ui/core';
 import Footer from './Footer'
 import MediaCard from './AboutUs';
 
@@ -20,6 +20,10 @@ import MediaCard from './AboutUs';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+  },
+  backdrop: {
+    zIndex: theme.zIndex.drawer + 1,
+    color: '#fff',
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -179,11 +183,13 @@ function Searchbar() {
               />
               <Button class="searchButton"variant="outline-info" onClick={changeInput}>Search</Button>
             </div>
-
           </Toolbar>
         </AppBar>
       </div>
       <br />
+      <Backdrop className={classes.backdrop} open={loading}>
+        <CircularProgress color="inherit" />
+      </Backdrop>
       {about ? <MediaCard /> :
         <Content data={data} loading={loading} showComments={showComments} changePage={changePage} />
         }
