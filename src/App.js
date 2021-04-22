@@ -5,6 +5,7 @@ import Sample from './components/Sample';
 import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 // import Sample2 from './components/Sample2';
+import Footer from './components/Footer'
 
 const useStyles = makeStyles( {
   gridContainer: {
@@ -26,6 +27,15 @@ function App() {
         <Grid item xs={12} sm={6} md={4}>
           <Sample />
         </Grid>
+{/*         <Grid item xs={12} sm={6} md={4}>
+          <Sample />
+        </Grid>
+        <Grid item xs={12} sm={6} md={4}>
+          <Sample />
+        </Grid>
+        <Grid item xs={12} sm={6} md={4}>
+          <Sample />
+        </Grid>
         <Grid item xs={12} sm={6} md={4}>
           <Sample />
         </Grid>
@@ -35,7 +45,43 @@ function App() {
         <Grid item xs={12} sm={6} md={4}>
           <Sample />
         </Grid>
+        <Grid item xs={12} sm={6} md={4}>
+          <Sample />
         </Grid>
+        <Grid item xs={12} sm={6} md={4}>
+          <Sample />
+        </Grid>
+        <Grid item xs={12} sm={6} md={4}>
+          <Sample />
+        </Grid>
+        <Grid item xs={12} sm={6} md={4}>
+          <Sample />
+        </Grid>
+        <Grid item xs={12} sm={6} md={4}>
+          <Sample />
+        </Grid>
+        <Grid item xs={12} sm={6} md={4}>
+          <Sample />
+        </Grid>
+        <Grid item xs={12} sm={6} md={4}>
+          <Sample />
+        </Grid>
+        <Grid item xs={12} sm={6} md={4}>
+          <Sample />
+        </Grid>
+        <Grid item xs={12} sm={6} md={4}>
+          <Sample />
+        </Grid>
+        <Grid item xs={12} sm={6} md={4}>
+          <Sample />
+        </Grid>
+        <Grid item xs={12} sm={6} md={4}>
+          <Sample />
+        </Grid> */}
+        </Grid>
+        <footer>
+         <Footer />
+        </footer>
     </>
   );
 }
