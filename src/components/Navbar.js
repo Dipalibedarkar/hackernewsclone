@@ -1,17 +1,14 @@
-import react, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import './Navbar.css'
 import Axios from 'axios'
 import logo from './Y_Combinator_logo.png'
 import Content from './Content'
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import { fade, makeStyles } from '@material-ui/core/styles';
-import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
-import { Button } from '@material-ui/core';
+import { Button, Backdrop, CircularProgress } from '@material-ui/core';
 import Footer from './Footer'
 import MediaCard from './AboutUs';
 
@@ -20,6 +17,10 @@ import MediaCard from './AboutUs';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+  },
+  backdrop: {
+    zIndex: theme.zIndex.drawer + 1,
+    color: '#fff',
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -81,6 +82,7 @@ function Searchbar() {
   const [results, setResults] = useState(15)
   const [fixResults, setFixResults] = useState(15)
   const [about, setAbout] = useState(false)
+  const [page, setPage] = useState(0);
 
   useEffect(() => {
     fetchData();
@@ -88,12 +90,12 @@ function Searchbar() {
       fetchData();
     }, 300000);
     return () => clearInterval(interval);
-  }, [search, fixResults])
+  }, [search, fixResults, page])
 
   const fetchData = async () => {
     setAbout(false)
     setLoading(true)
-    await Axios.get(`https://hn.algolia.com/api/v1/search${search}&hitsPerPage=${fixResults}`)
+    await Axios.get(`https://hn.algolia.com/api/v1/search${search}&hitsPerPage=${fixResults}&page=${page}`)
       .then(response => setData(response.data.hits))
       .catch(error => alert(error))
     setTimeout(console.log(data), 200)
@@ -101,6 +103,7 @@ function Searchbar() {
   }
 
   const changeInput = () => {
+    setPage(0)
     setSearch(`?query=${input}&tags=story`)
   }
 
@@ -112,8 +115,8 @@ function Searchbar() {
   }
 
   const setResultNum = () => {
-    if (!isNaN(results) && (parseInt(results) == results) && results > 0 && results <= 100) {
-      setFixResults(results)
+    if ((parseInt(results) == results) && results > 0 && results <= 100) {
+      setFixResults(results.trim())
     }
   }
 
@@ -125,22 +128,25 @@ function Searchbar() {
     setSearch(`?tags=comment,story_${objID}`)
   }
 
+  const changePage = (page) => {
+    setPage(page-1)
+  }
 
 
   return (
     <>
       <div className={classes.root}>
-        <AppBar position="static">
+        <AppBar position="static" id="theNavBar">
           <Toolbar>
-            <img src={logo} className="logo" onClick={() => setSearch('?tags=front_page')} />
-            <h2 onClick={() => setSearch('?tags=front_page')}>
+            <img src={logo} className="logo" onClick={() => {setSearch('?tags=front_page')}} />
+            <h2 onClick={() => {setSearch('?tags=front_page')}}>
               Home
           </h2>
-            <h2 onClick={() => setSearch('_by_date?tags=(story,poll)')}>
-              Newest
+            <h2 onClick={() => {setSearch('_by_date?tags=(story,poll)')}}>
+              New
           </h2>
-            <h2 onClick={() => setSearch('?query=&tags=story')}>
-              Best of All
+            <h2 onClick={() => {setSearch('?query=&tags=story')}}>
+              Best of All Time
           </h2>
             <div className={classes.search}>
               <InputBase
@@ -154,8 +160,6 @@ function Searchbar() {
               />
               <Button class="amountButton"variant="outline-info" onClick={setResultNum}>Set Amount</Button>
             </div>
-            {/* <input type="number" name="results" placeholder=" Default: 15" onChange={((e) => setResults(e.target.value))}
-              min="6" max="50"/> */}
             <div className={classes.search}>
               <div className={classes.searchIcon}>
                 <SearchIcon />
@@ -172,13 +176,15 @@ function Searchbar() {
               />
               <Button class="searchButton"variant="outline-info" onClick={changeInput}>Search</Button>
             </div>
-
           </Toolbar>
         </AppBar>
       </div>
       <br />
+      <Backdrop className={classes.backdrop} open={loading}>
+        <CircularProgress color="inherit" />
+      </Backdrop>
       {about ? <MediaCard /> :
-        <Content data={data} loading={loading} showComments={showComments} />
+        <Content data={data} loading={loading} showComments={showComments} changePage={changePage} />
         }
       <Footer changeAbout={changeAbout} />
     </>

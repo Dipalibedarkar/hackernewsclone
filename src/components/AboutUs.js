@@ -18,13 +18,13 @@ import './About.css';
 
 const useStyles = makeStyles({
   root: {
-
-    maxWidth: 345,
+    minHeight: 500,
+    minWidth: 300,
     margin: "5rem", 
 
   },
   media: {
-    height: 240,
+    height: 350,
   },
 });
 
@@ -33,7 +33,7 @@ export default function MediaCard() {
 
   return (
       <> 
-      <Typography gutterBottom variant="h2" className="aboutTitle">
+      <Typography gutterBottom variant="h3" className="aboutTitle">
            About Us
       </Typography>
      <Grid container spacing={2} className={classes.gridContainer} >
@@ -46,7 +46,10 @@ export default function MediaCard() {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" text-align="center">
-           Matthias
+           Matthias Schmettow
+          </Typography>
+          <Typography gutterBottom variant="h6" text-align="center">
+           Full Stack Developer
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p" text-align="center">
           Visit us on <a class="visitGitHub" href="https://github.com/MatthiasvsGitHub" target="_blank" rel="noreferrer">GitHub</a>
@@ -64,7 +67,10 @@ export default function MediaCard() {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" text-align="center">
-            Dipali
+            Dipali Bedarkar
+          </Typography>
+          <Typography gutterBottom variant="h6" text-align="center">
+           Full Stack Developer
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p" text-align="center">
           Visit us on <a class="visitGitHub" href="https://github.com/dipalibedarkar" target="_blank" rel="noreferrer" >GitHub</a>
@@ -81,7 +87,10 @@ export default function MediaCard() {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" text-align="center">
-            Ömer
+            Ömer Ügür
+          </Typography>
+          <Typography gutterBottom variant="h6" text-align="center">
+           Full Stack Developer
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p" text-align="center">
             Visit us on <a class="visitGitHub" href="https://github.com/oemerueguer" target="_blank" rel="noreferrer">GitHub</a>
@@ -103,6 +112,7 @@ export default function MediaCard() {
           React 
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
+            This Website was built with the React JavaScript library. <br/>
           React is an open-source, front end, JavaScript library for building user interfaces or UI components. 
           It is maintained by Facebook.
           </Typography>
@@ -118,11 +128,12 @@ export default function MediaCard() {
         />
         <CardContent>
           <Typography gutterBottom variant="h5">
-          Material - UI
+          Material-UI
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-          MATERIAL-UI: A popular React UI Framework.  React components for faster and easier web development. 
-          Build your own design system.
+            This Website was built with the help of Material-UI. <br/>
+            Material-UI is a simple and customizable component library to build 
+            faster, beautiful, and more accessible React applications.
           </Typography>
         </CardContent>
     </Card>
@@ -139,7 +150,7 @@ export default function MediaCard() {
           Hacker News
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-          Hacker News Y Combinator - we build this webpages based on their open-source API in order to fetch the data.
+          Hacker News / Y Combinator: <br/>We build this webpsite with their open-source API to pratice working with API's.<br/> Thank you Y Combinator :).
           </Typography>
         </CardContent>
     </Card>
