@@ -17,7 +17,7 @@ import '../App.css';
 const useStyles = makeStyles((theme) => ({
     root: {
         maxWidth: 400,
-        height: 250,
+        minHeight: 300,
     },
     media: {
         height: 0,
@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
       
 }));
 
-function Content({ loading, data }) {
+function Content({ loading, data, showComments }) {
     const classes = useStyles();
 
     const calcDate = (time) => {
@@ -53,6 +53,11 @@ return(event.toLocaleDateString('en-US', {
                 hour: 'numeric',
                 minute: 'numeric'
               }))
+    }
+    function decodeHtml(html) {
+        var txt = document.createElement("textarea");
+        txt.innerHTML = html;
+        return txt.value;
     }
 
     return (
@@ -71,11 +76,6 @@ return(event.toLocaleDateString('en-US', {
                                 <Avatar aria-label="recipe" className={classes.avatar}>
                                     {e.points}</Avatar>
                             }
-                            /* action={
-                                <IconButton aria-label="settings">
-                                    <MoreVertIcon />
-                                </IconButton>
-                            } */
                             subheader={
                                 <div style={{ display: 'flex', justifyContent: 'space-around' }}>
                                     <p>{calcDate(e.created_at)}</p>
@@ -87,17 +87,17 @@ return(event.toLocaleDateString('en-US', {
                             <Typography variant="body2" color="textSecondary" component="p" className="cardTitle">
                                 {e.title ?
                                     <p>{e.title}</p> :
-                                    `${e.story_title ? <p>{e.story_title}</p> : "No Title :/"}`
+                                    <p>{decodeHtml(e.comment_text)}</p>
                                 }
                             </Typography>
                         </CardContent>
-                        <CardActions disableSpacing>
-                            <a href="#" className="ButtonHover"><Button size="small">Comments: {e.num_comments}</Button></a>
+                        {!e.num_comments ? '' : <CardActions disableSpacing>
+                            <a href="#" className="ButtonHover"><Button size="small" onClick={() => showComments(e.objectID)} >Comments: {e.num_comments}</Button></a>
                             <a href={e.url} target="_blank" className="ButtonHover Button"><Button size="small">Go to the News</Button></a>
                             <IconButton aria-label="share" onClick={()=> alert(e.url)} className="iconButton">
                                 <ShareIcon />
                             </IconButton>
-                        </CardActions>
+                        </CardActions>}
                     </Card>
                 </Grid>
                 </>
