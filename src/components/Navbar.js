@@ -1,5 +1,4 @@
 import react, { useState, useEffect } from 'react'
-import { Nav, NavLink, Navbar, NavbarBrand, Form, FormControl, Button } from 'react-bootstrap';
 import './Navbar.css'
 import Axios from 'axios'
 import logo from './Y_Combinator_logo.png'
@@ -12,6 +11,12 @@ import InputBase from '@material-ui/core/InputBase';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
+import { Button } from '@material-ui/core';
+import Footer from './Footer'
+import MediaCard from './AboutUs';
+
+
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -75,6 +80,7 @@ function Searchbar() {
   const [loading, setLoading] = useState(false)
   const [results, setResults] = useState(15)
   const [fixResults, setFixResults] = useState(15)
+  const [about, setAbout] = useState(false)
 
   useEffect(() => {
     fetchData();
@@ -108,6 +114,10 @@ function Searchbar() {
     if (!isNaN(results) && (parseInt(results) == results) && results > 0 && results <= 100) {
       setFixResults(results)
     }
+  }
+
+  const changeAbout = () => {
+    setAbout(!about)
   }
 
 
@@ -162,7 +172,10 @@ function Searchbar() {
         </AppBar>
       </div>
       <br />
-      <Content data={data} loading={loading} />
+      {about ? <MediaCard /> :
+        <Content data={data} loading={loading} />
+        }
+      <Footer changeAbout={changeAbout} />
     </>
   );
 }

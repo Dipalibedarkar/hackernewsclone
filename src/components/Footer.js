@@ -8,6 +8,7 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import Button from '@material-ui/core/Button';
 import { blue } from '@material-ui/core/colors';
 import MediaCard from './AboutUs';
+import './footer.css'
 
 const useStyles = makeStyles({
   root:{
@@ -19,17 +20,12 @@ const useStyles = makeStyles({
 
 
 
-export default function Footer() {
+export default function Footer({changeAbout}) {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
-  const [about, setAbout] = useState(false)
-
-  const changeAbout = () => {
-    setAbout(!about)
-  }
+  
   return (
     <>
-    {about ? <MediaCard /> : <p>Normal Content</p>} 
     <BottomNavigation 
       value={value}
       onChange={(event, newValue) => {
@@ -43,9 +39,8 @@ export default function Footer() {
   About Us
 </Button>
       
- <BottomNavigationAction label="github" icon={<GitHubIcon />} />
+ <BottomNavigationAction style={{ color: 'black' }} label="github" icon={<GitHubIcon />} />
     </BottomNavigation>
     </>
   );
 }
-
