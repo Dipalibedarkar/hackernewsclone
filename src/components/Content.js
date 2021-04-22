@@ -1,4 +1,4 @@
-import { Grid } from '@material-ui/core';
+import { Grid} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -12,7 +12,9 @@ import { red } from '@material-ui/core/colors';
 import ShareIcon from '@material-ui/icons/Share';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import TextField from '@material-ui/core/TextField';
+import { Pagination } from '@material-ui/lab';
 import '../App.css';
+import react, {useState} from 'react'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -45,6 +47,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Content({ loading, data, showComments }) {
+    const [page, setPage] = useState(1);
     const classes = useStyles();
 
     const calcDate = (time) => {
@@ -103,7 +106,9 @@ return(event.toLocaleDateString('en-US', {
                 </>
             ))
             }
+            <Pagination count={10} color="primary" />
         </Grid>))}
+        
         </>
     );
 }
