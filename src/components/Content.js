@@ -17,7 +17,7 @@ import TextField from '@material-ui/core/TextField';
 const useStyles = makeStyles((theme) => ({
     root: {
         maxWidth: 400,
-        minHeight: 250,
+        height: 250,
     },
     media: {
         height: 0,
