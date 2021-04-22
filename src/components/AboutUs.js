@@ -33,7 +33,7 @@ export default function MediaCard() {
 
   return (
       <> 
-      <Typography gutterBottom variant="h2" className="aboutTitle">
+      <Typography gutterBottom variant="h3" className="aboutTitle">
            About Us
       </Typography>
      <Grid container spacing={2} className={classes.gridContainer} >
