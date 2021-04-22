@@ -103,7 +103,7 @@ return(event.toLocaleDateString('en-US', {
                 </>
             ))
             }
-        </Grid>))})
+        </Grid>))}
         </>
     );
 }
