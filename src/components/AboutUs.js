@@ -19,7 +19,7 @@ import './About.css';
 const useStyles = makeStyles({
   root: {
 
-    maxWidth: 345,
+    minWidth: 300,
     margin: "5rem", 
 
   },
@@ -46,7 +46,10 @@ export default function MediaCard() {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" text-align="center">
-           Matthias
+           Matthias Schmettow
+          </Typography>
+          <Typography gutterBottom variant="h6" text-align="center">
+           Full Stack Developer
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p" text-align="center">
           Visit us on <a class="visitGitHub" href="https://github.com/MatthiasvsGitHub" target="_blank" rel="noreferrer">GitHub</a>
@@ -64,7 +67,10 @@ export default function MediaCard() {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" text-align="center">
-            Dipali
+            Dipali Bedarkar
+          </Typography>
+          <Typography gutterBottom variant="h6" text-align="center">
+           Full Stack Developer
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p" text-align="center">
           Visit us on <a class="visitGitHub" href="https://github.com/dipalibedarkar" target="_blank" rel="noreferrer" >GitHub</a>
@@ -81,7 +87,10 @@ export default function MediaCard() {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" text-align="center">
-            Ömer
+            Ömer Ügür
+          </Typography>
+          <Typography gutterBottom variant="h6" text-align="center">
+           Full Stack Developer
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p" text-align="center">
             Visit us on <a class="visitGitHub" href="https://github.com/oemerueguer" target="_blank" rel="noreferrer">GitHub</a>
