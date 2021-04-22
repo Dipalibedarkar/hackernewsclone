@@ -109,7 +109,7 @@ return(event.toLocaleDateString('en-US', {
                 </>
             ))
             }
-            <Pagination count={10} page={selectedPage} onChange={handlePageChange} color="primary" />
+            <Pagination count={10} page={selectedPage} onChange={handlePageChange} style={{marginLeft: 'auto', marginRight: 'auto'}} color="primary" />
         </Grid>))}
         
         </>
