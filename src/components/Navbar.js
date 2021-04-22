@@ -115,8 +115,8 @@ function Searchbar() {
   }
 
   const setResultNum = () => {
-    if (!isNaN(results) && (parseInt(results) == results) && results > 0 && results <= 100) {
-      setFixResults(results)
+    if ((parseInt(results) == results) && results > 0 && results <= 100) {
+      setFixResults(results.trim())
     }
   }
 
