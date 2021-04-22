@@ -105,7 +105,7 @@ function Searchbar() {
   }
 
   const setResultNum = () => {
-    if (!isNaN(results) && (parseInt(results) == results) && results>0 && results <= 100) {
+    if (!isNaN(results) && (parseInt(results) == results) && results > 0 && results <= 100) {
       setFixResults(results)
     }
   }
@@ -129,7 +129,7 @@ function Searchbar() {
           </h2>
             <div className={classes.search}>
               <InputBase
-                placeholder="Res per page"
+                placeholder="Results per page"
                 onChange={((e) => setResults(e.target.value))}
                 classes={{
                   root: classes.inputRoot,
