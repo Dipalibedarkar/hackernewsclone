@@ -91,7 +91,7 @@ return(event.toLocaleDateString('en-US', {
                                 }
                             </Typography>
                         </CardContent>
-                        {!e.num_comments ? '' : <CardActions disableSpacing>
+                        {!e.title ? '' : <CardActions disableSpacing>
                             <a href="#" className="ButtonHover"><Button size="small" onClick={() => showComments(e.objectID)} >Comments: {e.num_comments}</Button></a>
                             <a href={e.url} target="_blank" className="ButtonHover Button"><Button size="small">Go to the News</Button></a>
                             <IconButton aria-label="share" onClick={()=> alert(e.url)} className="iconButton">
