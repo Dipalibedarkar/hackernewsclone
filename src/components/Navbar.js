@@ -98,12 +98,11 @@ function Searchbar() {
     await Axios.get(`https://hn.algolia.com/api/v1/search${search}&hitsPerPage=${fixResults}&page=${page}`)
       .then(response => setData(response.data.hits))
       .catch(error => alert(error))
-    setTimeout(console.log(data), 200)
+    /* setTimeout(console.log(data), 200) */
     setLoading(false)
   }
 
   const changeInput = () => {
-    setPage(0)
     setSearch(`?query=${input}&tags=story`)
   }
 
